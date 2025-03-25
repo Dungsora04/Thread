@@ -1,7 +1,17 @@
-import { Avatar, Box, Divider, Flex, Image, Text, useColorMode } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Image,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
 import { useState } from "react";
+import Comment from "../components/Comment";
 
 const PostPage = () => {
   const { colorMode } = useColorMode();
@@ -47,10 +57,47 @@ const PostPage = () => {
         </Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
         <Text color={"gray.light"} fontSize={"sm"}>
-          {100 +  (liked ? 1 : 0)} likes
+          {100 + (liked ? 1 : 0)} likes
         </Text>
       </Flex>
-      <Divider borderColor={colorMode === "dark" ? "gray.light" : "gray"} my={3}/>
+      <Divider
+        borderColor={colorMode === "dark" ? "gray.light" : "gray"}
+        my={4}
+      />
+
+      <Flex justifyContent={"space-between"}>
+        <Flex gap={2} alignItems={"center"}>
+          <Text fontSize={"2xl"}>✌️</Text>
+          <Text color={"gray.light"}>Get the app to like, reply</Text>
+        </Flex>
+        <Button>Get</Button>
+      </Flex>
+
+      <Divider
+        borderColor={colorMode === "dark" ? "gray.light" : "gray"}
+        my={4}
+      />
+      <Comment
+        commentText="Look really good"
+        createdAt="2d"
+        likes={20}
+        username="zuckerberg"
+        userAvatar="/castorice.webp"
+      />
+      <Comment
+        commentText="You're precious, love. Happy Valentine!!"
+        createdAt="1d"
+        likes={8}
+        username="hoshi"
+        userAvatar="/zuck-avatar.png"
+      />
+      <Comment
+        commentText="I love you, my love. Happy Valentine"
+        createdAt="1d"
+        likes={19}
+        username="caelus"
+        userAvatar="/rappa_valentine.webp"
+      />
     </>
   );
 };
