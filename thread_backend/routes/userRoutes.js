@@ -4,7 +4,10 @@ import protectRoute from "../middlewares/protectRoute.js";
 
 const router = express.Router();
 
-router.get("/profile/:username", protectRoute, getUserProfile); // Get a user's profile, middleware to protect the route
+//router.get("/profile/:username", protectRoute, getUserProfile); // Get a user's profile, middleware to protect the route
+                                    //maybe we don't need to protect this route, since getting a user's profile is PUBLIC
+
+router.get("/profile/:username", getUserProfile); 
 
 router.post("/signup", signUpUser);　// Create a new user
 router.post("/login", logInUser);　// Log in a user
